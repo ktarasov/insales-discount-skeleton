@@ -11,8 +11,6 @@ final class IndexController extends AbstractController
     #[Route('/', name: 'app_index')]
     public function __invoke(): Response
     {
-        return $this->render('index.html.twig', [
-            'page_title' => 'Внешняя скидка InSales',
-        ]);
+        return new Response('Внешняя скидка InSales');
     }
 }
