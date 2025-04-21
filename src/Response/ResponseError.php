@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DTO;
+namespace App\Response;
 
 use Fig\Http\Message\StatusCodeInterface;
 

@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\DTO\ResponseDiscount;
-use App\DTO\ResponseError;
+use App\Response\ResponseDiscount;
+use App\Response\ResponseError;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
