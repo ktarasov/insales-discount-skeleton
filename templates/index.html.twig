@@ -1,28 +1,123 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ page_title }}{% endblock %}
+{% block title %}Внешняя скидка InSales{% endblock %}
 
 {% block stylesheets %}
-<style>
-    html {
-        font: 16px Arial, Helvetica, sans-serif;
-        font-smoothing: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+	<style>
+		html {
+			font: 16px Arial, Helvetica, sans-serif;
+			font-smoothing: auto;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
 
-    .insales-discount-skeleton {
-        max-width: 1250px;
-        margin: auto;
-    }
-</style>
+		.insales-discount-skeleton {
+			max-width: 1024px;
+			margin: auto;
+		}
+
+        .insales-discount-skeleton .table {
+            border: 1px solid #000;
+            border-collapse: collapse;
+
+            th, td {
+                border: 1px solid #000;
+                padding: .25em .5em;
+            }
+        }
+	</style>
 {% endblock %}
 
 {% block body %}
-<div class="insales-discount-skeleton">
-    <h1>{{ page_title }}</h1>
-    <p>
+	<div class="insales-discount-skeleton">
+		<h1>Внешняя скидка InSales</h1>
+		<h2>Преамбула</h2>
+		<p>Код проекта представляет собой пример реализации обработчика внешней скидки для платформы
+			<a href="http://www.insales.ru/?aff=f264a7f82" target="_blank">InSales</a>.</p>
+		<p>Вы можете свободно использовать его для изучения или создания собственных скидок для вашего интернет-магазина, работающего на платформе InSales, в рамках лицензионного соглашения.</p>
+		<h2>Обслуживаемые адреса</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>URL</th>
+					<th>Назначение</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>/discount</td>
+					<td>Основной адрес, который задействует механиз скидки</td>
+				</tr>
+				<tr>
+					<td>/test-discount</td>
+					<td>Адрес для проверки данных отправляемых InSales</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>Что нужно, чтобы развернуть скидку на своем сервере</h2>
+		<ol>
+			<li><b>Домен для механизма скидки</b>: Создайте субдомен третьего уровня на основном домене вашего интернет-магазина — например, ins.my-shop.ru.</li>
+			<li><b>Хостинг с необходимыми функциями</b>: Подберите надежный хостинг, поддерживающий PHP и SSL-сертификаты. Даже самый базовый вариант подойдет для ваших нужд.</li>
+			<li><b>Технические навыки и мотивация</b>: Важно понимать основы PHP, а также обладать любопытством и стремлением к обучению. Это поможет вам эффективно разобраться и реализовать необходимый механизм скидки.</li>
+		</ol>
 
-    </p>
-</div>
+		<p>Не забудьте установить значение
+			<code>prod</code>
+			для настройки
+			<code>APP_ENV</code>
+			при развертывании на хостинге. Более подробную информацию вы найдёте в разделе
+			<a href="#app-settings">«Настройки»</a>.</p>
+		<h2>
+			<a id="app-settings"></a>Настройки</h2>
+		<p>В целом, количество настроек невелико, и все они содержатся в файле <code>.env</code>.</p>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Название настройки</th>
+					<th>Значение по-умолчанию</th>
+					<th>Описание настройки</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>APP_ENV</td>
+					<td>dev</td>
+					<td>Режим работы сайта. Для работы в продакшене нужно изменить на
+						<code>prod</code>
+					</td>
+				</tr>
+				<tr>
+					<td>DISCOUNT_TITLE</td>
+					<td>Скидка на самый дешевый товар в заказе</td>
+					<td>Название скидки, которое передается в InSales</td>
+				</tr>
+				<tr>
+					<td>DISCOUNT_TYPE</td>
+					<td>MONEY</td>
+					<td>Тип скидки. MONEY - скидка в рублях, PERCENT - скидка в процентах</td>
+				</tr>
+				<tr>
+					<td>DISCOUNT_ROUND</td>
+					<td>false</td>
+					<td>Округлять скиду до целого или нет</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>Полезные ссылки</h2>
+		<ul>
+			<li><a href="https://www.insales.ru/collection/doc-skidki/product/vneshnie-skidki" target="_blank">Официальная документация по внешним скидкам</a></li>
+		<li>
+			<a href="mailto:sales+dec@insales-studio.ru" target="_blank">Если возникли вопросы и нужна консультация</a>
+		</li>
+		<li>
+			<a href="mailto:sales+dev@insales-studio.ru" target="_blank">Если нужна помощь в разработке скидки для магазина</a>
+		</li>
+		<li>
+			<a href="mailto:sales+host@insales-studio.ru" target="_blank">Если нужна помощь в развертывании скдики на хостинге</a>
+		</li>
+		<li>Если вам не хочется тратить время на изучение PHP, настройку хостинга и другие технические аспекты, то наш
+			<a href="https://insales-discounts.ru" target="_blank">сервис внешних скидок</a>
+			— это то, что вам нужно!</li>
+        </ul>
+	</div>
 {% endblock %}
