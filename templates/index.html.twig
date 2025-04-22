@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Внешняя скидка InSales{% endblock %}
+{% block title %}Внешняя скидка InSales
+{% endblock %}
 
 {% block stylesheets %}
 	<style>
@@ -16,15 +17,16 @@
 			margin: auto;
 		}
 
-        .insales-discount-skeleton .table {
-            border: 1px solid #000;
-            border-collapse: collapse;
+		.insales-discount-skeleton .table {
+			border: 1px solid #000;
+			border-collapse: collapse;
 
-            th, td {
-                border: 1px solid #000;
-                padding: .25em .5em;
-            }
-        }
+			th,
+			td {
+				border: 1px solid #000;
+				padding: 0.25em 0.5em;
+			}
+		}
 	</style>
 {% endblock %}
 
@@ -56,9 +58,12 @@
 		</table>
 		<h2>Что нужно, чтобы развернуть скидку на своем сервере</h2>
 		<ol>
-			<li><b>Домен для механизма скидки</b>: Создайте субдомен третьего уровня на основном домене вашего интернет-магазина — например, ins.my-shop.ru.</li>
-			<li><b>Хостинг с необходимыми функциями</b>: Подберите надежный хостинг, поддерживающий PHP и SSL-сертификаты. Даже самый базовый вариант подойдет для ваших нужд.</li>
-			<li><b>Технические навыки и мотивация</b>: Важно понимать основы PHP, а также обладать любопытством и стремлением к обучению. Это поможет вам эффективно разобраться и реализовать необходимый механизм скидки.</li>
+			<li>
+				<b>Домен для механизма скидки</b>: Создайте субдомен третьего уровня на основном домене вашего интернет-магазина — например, ins.my-shop.ru.</li>
+			<li>
+				<b>Хостинг с необходимыми функциями</b>: Подберите надежный хостинг, поддерживающий PHP и SSL-сертификаты. Даже самый базовый вариант подойдет для ваших нужд.</li>
+			<li>
+				<b>Технические навыки и мотивация</b>: Важно понимать основы PHP, а также обладать любопытством и стремлением к обучению. Это поможет вам эффективно разобраться и реализовать необходимый механизм скидки.</li>
 		</ol>
 
 		<p>Не забудьте установить значение
@@ -69,7 +74,8 @@
 			<a href="#app-settings">«Настройки»</a>.</p>
 		<h2>
 			<a id="app-settings"></a>Настройки</h2>
-		<p>В целом, количество настроек невелико, и все они содержатся в файле <code>.env</code>.</p>
+		<p>В целом, количество настроек невелико, и все они содержатся в файле
+			<code>.env</code>.</p>
 		<table class="table">
 			<thead>
 				<tr>
@@ -105,19 +111,24 @@
 		</table>
 		<h2>Полезные ссылки</h2>
 		<ul>
-			<li><a href="https://www.insales.ru/collection/doc-skidki/product/vneshnie-skidki" target="_blank">Официальная документация по внешним скидкам</a></li>
-		<li>
-			<a href="mailto:sales+dec@insales-studio.ru" target="_blank">Если возникли вопросы и нужна консультация</a>
-		</li>
-		<li>
-			<a href="mailto:sales+dev@insales-studio.ru" target="_blank">Если нужна помощь в разработке скидки для магазина</a>
-		</li>
-		<li>
-			<a href="mailto:sales+host@insales-studio.ru" target="_blank">Если нужна помощь в развертывании скдики на хостинге</a>
-		</li>
-		<li>Если вам не хочется тратить время на изучение PHP, настройку хостинга и другие технические аспекты, то наш
-			<a href="https://insales-discounts.ru" target="_blank">сервис внешних скидок</a>
-			— это то, что вам нужно!</li>
-        </ul>
+			<li>
+				<a href="https://www.insales.ru/collection/doc-skidki/product/vneshnie-skidki" target="_blank">Официальная документация по внешним скидкам</a>
+			</li>
+			<li>
+				<a href="https://gitverse.ru/kvt/insales-discount-skeleton" target="_blank">Репозиторий кода на GitVerse</a>
+			</li>
+			<li>
+				<a href="mailto:sales+dec@insales-studio.ru" target="_blank">Если возникли вопросы и нужна консультация</a>
+			</li>
+			<li>
+				<a href="mailto:sales+dev@insales-studio.ru" target="_blank">Если нужна помощь в разработке скидки для магазина</a>
+			</li>
+			<li>
+				<a href="mailto:sales+host@insales-studio.ru" target="_blank">Если нужна помощь в развертывании скдики на хостинге</a>
+			</li>
+			<li>Если вам не хочется тратить время на изучение PHP, настройку хостинга и другие технические аспекты, то наш
+				<a href="https://insales-discounts.ru" target="_blank">сервис внешних скидок</a>
+				— это то, что вам нужно!</li>
+		</ul>
 	</div>
 {% endblock %}
