@@ -2,20 +2,23 @@
 
 namespace App\Response;
 
-use Fig\Http\Message\StatusCodeInterface;
-
+/**
+ * Объект ответа с ошибкой.
+ *
+ * @author Константин Тарасов <kvt@peredelka-saitov.ru>
+ * @copyright (C) 2025 Переделка-сайтов.РФ
+ * @license GNU General Public License version 2 see LICENSE.md
+ */
 class ResponseError implements \JsonSerializable
 {
-	protected array $errors = [];
-	protected int $resultCode = StatusCodeInterface::STATUS_OK;
+	protected array $errors = []; // Список ошибок
 
 	/**
 	 * Конcтруктор объект ответа с ошибкой
 	 * @param string|null $error_msg - сообщение об ошибке/массив строк с ошибками
 	 */
-	public function __construct(?string $error_msg = null, $resultCode = StatusCodeInterface::STATUS_OK)
+	public function __construct(?string $error_msg = null)
 	{
-		$this->resultCode = $resultCode;
 		if ($error_msg) {
 			$this->addError($error_msg);
 		}
@@ -40,11 +43,6 @@ class ResponseError implements \JsonSerializable
 	public function getErrors(): array
 	{
 		return $this->errors;
-	}
-
-	public function getResultCode(): int
-	{
-		return $this->resultCode;
 	}
 
 	public function jsonSerialize(): mixed
