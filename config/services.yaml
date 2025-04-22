@@ -6,6 +6,7 @@
 parameters:
     app.discount_title: '%env(DISCOUNT_TITLE)%'
     app.discount_type: '%env(DISCOUNT_TYPE)%'
+    app.discount_round: '%env(bool:DISCOUNT_ROUND)%'
 
 services:
     # default configuration for services in *this* file
