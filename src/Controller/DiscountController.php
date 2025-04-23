@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Handler\DiscountHandler;
 use App\Response\ResponseDiscount;
 use App\Response\ResponseError;
-use Fig\Http\Message\StatusCodeInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -30,7 +29,7 @@ final class DiscountController extends AbstractController
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    #[Route('/discount', name: 'app_discount', methods: 'POST')]
+    #[Route('/discount', name: 'app_discount', methods: Request::METHOD_POST)]
     public function discount(
         Request $request,
         DiscountHandler $handler,
@@ -43,7 +42,7 @@ final class DiscountController extends AbstractController
             $error = json_last_error_msg();
             return $this->json(
                 new ResponseError($error),
-                StatusCodeInterface::STATUS_BAD_REQUEST
+                JsonResponse::HTTP_BAD_REQUEST
             );
         }
 
@@ -51,7 +50,7 @@ final class DiscountController extends AbstractController
         if (empty($order) || empty($order->order_lines)) {
             return $this->json(
                 new ResponseError('Неправильный запрос'),
-                StatusCodeInterface::STATUS_BAD_REQUEST
+                JsonResponse::HTTP_BAD_REQUEST
             );
         }
 
@@ -82,7 +81,7 @@ final class DiscountController extends AbstractController
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    #[Route('/test-discount', name: 'app_discount_test', methods: 'POST')]
+    #[Route('/test-discount', name: 'app_discount_test', methods: Request::METHOD_POST)]
     public function test(Request $request, LoggerInterface $logger): JsonResponse
     {
         $logger->info('test-discount request body', [
