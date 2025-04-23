@@ -2,9 +2,9 @@
 
 namespace App\Tests\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Fig\Http\Message\RequestMethodInterface;
-use Fig\Http\Message\StatusCodeInterface;
 
 final class DiscountControllerTest extends WebTestCase
 {
@@ -12,7 +12,7 @@ final class DiscountControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request(
-            RequestMethodInterface::METHOD_POST,
+            Request::METHOD_POST,
             '/discount',
             content: json_encode([
                 'order_lines' => [
@@ -35,22 +35,22 @@ final class DiscountControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request(
-            RequestMethodInterface::METHOD_POST,
+            Request::METHOD_POST,
             '/discount',
         );
 
-        self::assertResponseStatusCodeSame(StatusCodeInterface::STATUS_BAD_REQUEST);
+        self::assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
     }
 
     public function testInvalidOrderObject(): void
     {
         $client = static::createClient();
         $client->request(
-            RequestMethodInterface::METHOD_POST,
+            Request::METHOD_POST,
             '/discount',
             content: '[]'
         );
 
-        self::assertResponseStatusCodeSame(StatusCodeInterface::STATUS_BAD_REQUEST);
+        self::assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
     }
 }
